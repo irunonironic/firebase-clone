@@ -53,7 +53,7 @@ export default function Navbar() {
           <div className="md:hidden ">
             {showSearch ? (
               <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1 bg-white w-full">
-                <Search className="w-5 h-5 text-gray-500" />
+                
                 <input
                   type="text"
                   placeholder="Search"
@@ -93,7 +93,7 @@ export default function Navbar() {
             <img
               src="/assets/firebase_studio.webp"
               alt="Firebase Studio"
-              className="h-5 w-5"
+              className="h-5 w-5  hidden md:block"
             />
             <span>Studio</span>
           </a>
@@ -105,12 +105,6 @@ export default function Navbar() {
           >
             Go to console
           </a>
-
-          {/* More icon (mobile only) */}
-          <MoreVertical
-            className="block md:hidden w-7 h-7 text-gray-600 border border-gray-300 rounded-full p-1 hover:bg-gray-100"
-            strokeWidth={3}
-          />
 
           {/* Profile (desktop only) */}
           <img
