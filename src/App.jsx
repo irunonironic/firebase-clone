@@ -1,11 +1,9 @@
 import React from 'react';
-import NavBar from './Components/NavBar/NavBar';
-import Main from './Components/Main'
+import Mains from './Components/Mains'
 function App() {
   return (
     <div>
-      <NavBar />
-      <Main />
+      <Mains />
     </div>
   );
 }

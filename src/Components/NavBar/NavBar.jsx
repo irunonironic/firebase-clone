@@ -5,13 +5,13 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="w-full border-b border-gray-200 bg-white">
       <nav className="flex items-center justify-between px-4 md:px-6 h-14">
         {/* Left side */}
         <div className="flex items-center gap-4 md:gap-10">
-          {/* Hamburger (mobile only) */}
+          {/* Hamburger (mobile ) */}
           <button
             onClick={() => setMenuOpen(true)}
             className="block md:hidden p-2 rounded hover:bg-gray-100"
@@ -26,7 +26,7 @@ export default function Navbar() {
             alt="Firebase Logo"
           />
 
-          {/* Nav links (desktop only) */}
+          {/* Nav links (desktop ) */}
           <div className="hidden md:flex items-center gap-8 text-gray-700 text-sm">
             <a href="#">Build</a>
             <a href="#">Run</a>
@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-3 md:gap-6">
-          {/* Search bar (desktop only) */}
+          {/* Search bar (desktop ) */}
           <div className="hidden md:flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1 bg-white">
             <Search className="w-4 h-4 text-gray-400" />
             <input
@@ -49,16 +49,37 @@ export default function Navbar() {
             <span className="text-gray-400 text-xs">/</span>
           </div>
 
-          {/* Search icon (mobile only) */}
-          <button className="block md:hidden p-2 rounded-full hover:bg-gray-100">
-            <Search className="w-5 h-5 text-gray-600" />
-          </button>
+          {/* Search icon (mobile) */}
+          <div className="md:hidden ">
+            {showSearch ? (
+              <div className="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1 bg-white w-full">
+                <Search className="w-5 h-5 text-gray-500" />
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="outline-none text-sm text-gray-500 placeholder-gray-500 flex-1"
+                />
+                <button onClick={() => setShowSearch(false)}>
+                  <X className="w-5 h-5 text-gray-500" />
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={() => setShowSearch(true)}
+                className="p-2 rounded-full hover:bg-gray-100"
+              >
+                <Search className="w-5 h-5 text-gray-500" />
+              </button>
+            )}
+            
+          </div>
 
-          {/* Toggle + Language */}
+        
           <Toggle />
+          <div className="hidden md:block">
           <Language fullName={false} />
-
-          {/* Blog & Studio (desktop only) */}
+          </div>
+          {/* Blog & Studio (desktop) */}
           <a
             href="#"
             className="hidden md:block text-blue-600 hover:bg-blue-100 px-2 py-1 rounded text-sm"
@@ -67,7 +88,7 @@ export default function Navbar() {
           </a>
           <a
             href="#"
-            className="hidden md:flex items-center gap-1 text-sm hover:bg-gray-100 px-2 py-1 rounded"
+            className="flex items-center gap-1 text-sm hover:bg-gray-100 px-2 py-1 rounded"
           >
             <img
               src="/assets/firebase_studio.webp"
@@ -95,7 +116,7 @@ export default function Navbar() {
           <img
             src="/assets/360_F_1247500272_kJB5cpMOHgbzfXeqg2spytDlTMI6J7zT.webp"
             alt="Profile"
-            className="hidden md:block w-9 h-9 rounded-full object-cover cursor-pointer"
+            className=" w-9 h-9 rounded-full object-cover cursor-pointer"
           />
         </div>
       </nav>
