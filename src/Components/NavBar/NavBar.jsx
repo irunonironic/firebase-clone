@@ -95,7 +95,7 @@ export default function Navbar() {
               alt="Firebase Studio"
               className="h-5 w-5  hidden md:block"
             />
-            <span>Studio</span>
+            <span className=" hidden md:block">Studio</span>
           </a>
 
           {/* Console/Login (desktop only) */}
